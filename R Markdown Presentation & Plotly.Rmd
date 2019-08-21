@@ -1,0 +1,29 @@
+---
+title: "R Markdown Presentation & Plotly"
+author: "Jumadi"
+date: "August 21, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Instruction
+
+Create a web page presentation using R Markdown that features a plot created with Plotly.
+
+```{r}
+library(plotly)
+library(dplyr)
+
+data <- rnorm(1000, 1,4)
+data2 <- rnorm(1000, 5,4)
+
+p <- plot_ly(alpha = 0.6) %>%
+  add_histogram(x = data) %>%
+  add_histogram(x = data2) %>%
+  layout(barmode = "overlay")
+p
+
+```
